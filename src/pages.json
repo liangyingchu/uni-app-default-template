@@ -1,16 +1,79 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
 		{
-			"path": "pages/index/index",
+			"path": "pages/tabBar/demo/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "demo",
+				"navigationBarBackgroundColor": "#1E9FFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+
+		{
+			"path": "pages/tabBar/datachecker/index",
+			"style": {
+				"navigationBarTitleText": "表单验证",
+				"navigationBarBackgroundColor": "#1E9FFF",
+				"navigationBarTextStyle": "white"
 			}
 		}
+
 	],
+
+	// 分包加载配置
+	// 微信小程序每个分包的大小是2M，总体积一共不能超过8M
+	"subPackages": [
+		{
+			"root": "pages/subPackage", // 子包的根目录
+			"pages": [
+				{
+					"path": "page-one/page-one",
+					"style": {
+						"navigationBarTitleText": "page-one"
+					}
+				},
+				{
+					"path": "page-two/page-two",
+					"style": {
+						"navigationBarTitleText": "page-two"
+					}
+				}
+			]
+		}
+	],
+
+	// 用于设置应用的状态栏、导航条、标题、窗口背景色等
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "black", // 导航栏标题颜色及状态栏前景颜色，仅支持 black/white
+		"navigationBarTitleText": "uni-app", // 导航栏标题文字内容
+		"navigationBarBackgroundColor": "#F8F8F8", // 导航栏背景颜色（同状态栏背景色）
+		"backgroundColor": "#F8F8F8", // 窗口的背景色
+		"enablePullDownRefresh": false, // 是否开启下拉刷新
+		"onReachBottomDistance": 50 // 页面上拉触底事件触发时距页面底部距离，单位只支持px
+	},
+
+	// 底部 tab
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"backgroundColor": "#F8F8F8",
+		"borderStyle": "black",
+		"position": "bottom",
+		"list": [
+			{
+				"pagePath": "pages/tabBar/demo/index",
+				"iconPath": "static/extui.png",
+				"selectedIconPath": "static/extuiHL.png",
+				"text": "demo"
+			},
+
+			{
+				"pagePath": "pages/tabBar/datachecker/index",
+				"iconPath": "static/template.png",
+				"selectedIconPath": "static/templateHL.png",
+				"text": "form"
+			}
+		]
 	}
 }
