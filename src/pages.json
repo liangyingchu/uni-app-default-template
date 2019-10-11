@@ -11,9 +11,28 @@
 		},
 
 		{
+			"path": "pages/tabBar/canvas/index",
+			"style": {
+				"navigationBarTitleText": "canvas",
+				"navigationBarBackgroundColor": "#1E9FFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+
+		{
 			"path": "pages/tabBar/datachecker/index",
 			"style": {
 				"navigationBarTitleText": "表单验证",
+				"navigationBarBackgroundColor": "#1E9FFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+
+		{
+			"path": "pages/tabBar/canvas/drag/index",
+			"style": {
+				"disableScroll": true,
+				"navigationBarTitleText": "drag",
 				"navigationBarBackgroundColor": "#1E9FFF",
 				"navigationBarTextStyle": "white"
 			}
@@ -66,6 +85,13 @@
 				"iconPath": "static/extui.png",
 				"selectedIconPath": "static/extuiHL.png",
 				"text": "demo"
+			},
+
+			{
+				"pagePath": "pages/tabBar/canvas/index",
+				"iconPath": "static/api.png",
+				"selectedIconPath": "static/apiHL.png",
+				"text": "canvas"
 			},
 
 			{
