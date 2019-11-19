@@ -4,9 +4,9 @@
 			<uni-card
 				is-shadow
 				mode="title"
-				title="DCloud"
+				title="WebView"
 				thumbnail="https://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png"
-				extra="技术没有上限"
+				extra="点击查看"
 				note="true"
 				@click="clickCard"
 			>
@@ -15,7 +15,7 @@
 						<image mode="aspectFill" src="http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/run1x7.png" />
 					</view>
 					<view class="uni-pt20">
-						uni-app 是一个使用 Vue.js 开发所有前端应用的框架。
+						点击当前卡片，前往 web-view demo 页
 					</view>
 				</view>
 
@@ -149,6 +149,9 @@
 					title: '点击卡片',
 					icon: 'success'
 				})
+				// #ifdef  APP-PLUS
+				uni.navigateTo({ url: '/pages/web-view-local/web-view-local' })
+				// #endif
 			},
 
 			footerClick(types) {

@@ -10,19 +10,19 @@
 			}
 		},
 
+		// #ifdef APP-PLUS
+		{
+			"path": "pages/web-view-local/web-view-local",
+			"style": {
+				"navigationBarTitleText": "web-view"
+			}
+		},
+		// #endif
+
 		{
 			"path": "pages/tabBar/canvas/index",
 			"style": {
 				"navigationBarTitleText": "canvas",
-				"navigationBarBackgroundColor": "#1E9FFF",
-				"navigationBarTextStyle": "white"
-			}
-		},
-
-		{
-			"path": "pages/tabBar/datachecker/index",
-			"style": {
-				"navigationBarTitleText": "表单验证",
 				"navigationBarBackgroundColor": "#1E9FFF",
 				"navigationBarTextStyle": "white"
 			}
@@ -36,6 +36,15 @@
 				"navigationBarBackgroundColor": "#1E9FFF",
 				"navigationBarTextStyle": "white"
 			}
+		},
+
+		{
+			"path": "pages/tabBar/datachecker/index",
+			"style": {
+				"navigationBarTitleText": "表单验证",
+				"navigationBarBackgroundColor": "#1E9FFF",
+				"navigationBarTextStyle": "white"
+			}
 		}
 
 	],
@@ -44,7 +53,7 @@
 	// 微信小程序每个分包的大小是2M，总体积一共不能超过8M
 	"subPackages": [
 		{
-			"root": "pages/subPackage", // 子包的根目录
+			"root": "subPackage", // 子包的根目录
 			"pages": [
 				{
 					"path": "page-one/page-one",
