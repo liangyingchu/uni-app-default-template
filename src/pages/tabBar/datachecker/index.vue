@@ -37,7 +37,7 @@
 
             <view class="uni-mt30 uni-pt10 uni-pb10">
                 <button class="uni-mb20" type="primary" formType="submit">Submit</button>
-                <button plain type="primary" formType="reset">Reset</button>
+                <button plain id="reset" type="primary" formType="reset">Reset</button>
             </view>
 
         </form>

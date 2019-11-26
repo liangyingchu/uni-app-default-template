@@ -41,10 +41,10 @@
 				extra="额外信息"
 			>
 				<view>
-					<button class="uni-mb20" type="default" @click="togglePopup('top', 'popup')">顶部弹出 popup</button>
-					<button class="uni-mb20" type="primary" @click="togglePopup('center', 'popup')">中间弹出 popup</button>
-					<button class="uni-mb20" type="warn" @click="togglePopup('bottom', 'popup')">底部弹出 popup</button>
-					<button plain type="warn" @click="togglePopup('center', 'tip')">自定义弹出层</button>
+					<button id="topPopup" class="uni-mb20" type="default" @click="togglePopup('top', 'popup')">顶部弹出 popup</button>
+					<button id="centerPopup" class="uni-mb20" type="primary" @click="togglePopup('center', 'popup')">中间弹出 popup</button>
+					<button id="bottomPopup" class="uni-mb20" type="warn" @click="togglePopup('bottom', 'popup')">底部弹出 popup</button>
+					<button plain id="tipPopup" type="warn" @click="togglePopup('center', 'tip')">自定义弹出层</button>
 				</view>
 			</uni-card>
 		</view>
