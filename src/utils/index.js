@@ -9,6 +9,68 @@ export const asyncWrap = (api, options={}) => new Promise((resolve, reject) => {
     })
 })
 
+
+/**
+ * 函数节流（throttle）
+ * 函数节流的核心是，让一个函数不要执行得太频繁，减少一些过快的调用来节流。
+ * 也就是在一段固定的时间内只触发一次回调函数，即便在这段时间内某个事件多次被触发，也只触发一次回调
+ * */
+export const throttle = function (func, gapTime) {
+    if(typeof func !== 'function') {
+        throw new TypeError('need a function');
+    }
+    gapTime = +gapTime || 0
+    let lastTime = 0
+
+    return function() {
+        let time = + new Date()
+        if(time - lastTime > gapTime || !lastTime) {
+            func()
+            lastTime = time
+        }
+    }
+}
+// 调用方式：每 1s 打印一次 'xxx'
+// throttle(() => {
+//     console.log('xxx')
+// }, 1000)
+
+
+/**
+ * 函数防抖（debounce）
+ * 函数防抖的原理是在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时。
+ * 也就是说事件来了，先 setTimeout 定个时，n 秒后再去触发回调函数。
+ * 它和节流的不同在于，如果某段时间内事件以间隔小于 n 秒的频率执行，那么这段时间回调只会触发一次。
+ * 节流则是按照 200ms 或者 300ms 定时触发，而不仅仅是一次。
+ * */
+export const debounce = function (func, wait) {
+    if(typeof func !== 'function') {
+        throw new TypeError('need a function')
+    }
+    wait = +wait || 0
+
+    let timeId = null
+
+    return function() {
+        const self = this;
+        const args = arguments;
+
+        if(timeId) {
+            clearTimeout(timeId);   // 清除定时器，重新设定一个新的定时器
+        }
+        timeId =  setTimeout(() => {
+            func.apply(self, args); // arguments 是传给函数的参数，这里是 event  对象
+
+        }, wait);
+
+    }
+}
+// 调用方式：
+// debounce(() => {
+//     console.log('执行滚动处理函数啦')
+// }, 1000)
+
+
 /**
  * 日期格式化
  * @param: time - 日期对象/时间戳
