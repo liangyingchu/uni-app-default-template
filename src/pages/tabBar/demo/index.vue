@@ -49,6 +49,23 @@
 			</uni-card>
 		</view>
 
+		<!--日历-->
+		<!--  #ifdef H5 -->
+		<view class="uni-mb30">
+			<uni-card
+				is-shadow
+				title="日历"
+				extra="仅 H5 可见"
+			>
+				<uni-calendar
+					:insert="true"
+					:lunar="true"
+					@change="calendarChange"
+				/>
+			</uni-card>
+		</view>
+		<!--  #endif -->
+
 		<!--默认弹层-->
 		<uni-popup ref="popup" :type="type" @change="handleChange">
 			{{ content }}
@@ -70,7 +87,7 @@
 </template>
 
 <script>
-	import { uniCard, uniPopup, uniIcon } from '@dcloudio/uni-ui'
+	import { uniCard, uniPopup, uniIcon, uniCalendar } from '@dcloudio/uni-ui'
 
 	export default {
 
@@ -79,7 +96,8 @@
 		components: {
 			uniCard,
 			uniPopup,
-			uniIcon
+			uniIcon,
+			uniCalendar
 		},
 
 		data() {
@@ -96,7 +114,7 @@
 
 		// 监听页面加载，其参数为上个页面传递的数据，参数类型为Object（用于页面传参）
 		onLoad(option) {
-			console.log('page load')
+			console.log(uni.getSystemInfoSync())
 		},
 
 		// 监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
@@ -145,13 +163,32 @@
 
 		methods: {
 			clickCard() {
+				/**
+				 * 条件编译
+				 * %PLATFORM% 常用取值：
+				 * APP-PLUS、H5、MP-WEIXIN、MP(微信小程序/支付宝小程序/百度小程序/头条小程序/QQ小程序)
+				 * */
+				/* 如下代码不会在 H5 和 5+App 平台上出现 */
+				// #ifndef H5 || APP-PLUS
 				uni.showToast({
 					title: '点击卡片',
 					icon: 'success'
 				})
-				// #ifdef  APP-PLUS
+				// #endif
+
+				/* 如下代码仅在 H5 下出现 */
+				// #ifdef H5
+				uni.showToast({
+					title: 'H5平台的点击',
+					icon: 'success'
+				})
+				// #endif
+
+				/* 如下代码仅在 5+App 下出现 */
+				// #ifdef APP-PLUS
 				uni.navigateTo({ url: '/pages/web-view-local/web-view-local' })
 				// #endif
+
 			},
 
 			footerClick(types) {
@@ -181,9 +218,10 @@
 				}
 			},
 
-			handleChange(e) {
-				console.log(e.show)
-			},
+			handleChange(e) { console.log(e.show) },
+
+			// 点击日历
+			calendarChange(e) { console.log(e) },
 
 			cancel() {
 				this.show = false
@@ -234,5 +272,10 @@
 			font-size: 14px;
 			color: #3b4144;
 		}
+		/*  #ifdef H5  */
+		&-content, &-title, &-button {
+			color: #009688;
+		}
+		/*  #endif  */
 	}
 </style>

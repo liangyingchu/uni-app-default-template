@@ -1,6 +1,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 
+		// #ifdef H5
+		{
+			"path": "pages/tabBar/demo/index",
+			"style": {
+				"navigationBarTitleText": "h5-demo",
+				"navigationBarBackgroundColor": "#393D49",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		// #endif
+
+		// #ifndef H5
 		{
 			"path": "pages/tabBar/demo/index",
 			"style": {
@@ -9,6 +21,7 @@
 				"navigationBarTextStyle": "white"
 			}
 		},
+		// #endif
 
 		// #ifdef APP-PLUS
 		{
