@@ -41,6 +41,9 @@
 				extra="额外信息"
 			>
 				<view>
+                    <!--使用 Mock-->
+                    <button class="uni-mb20" type="primary" plain="true" @click="mockData">Mock Data</button>
+
 					<button id="topPopup" class="uni-mb20" type="default" @click="togglePopup('top', 'popup')">顶部弹出 popup</button>
 					<button id="centerPopup" class="uni-mb20" type="primary" @click="togglePopup('center', 'popup')">中间弹出 popup</button>
 					<button id="bottomPopup" class="uni-mb20" type="warn" @click="togglePopup('bottom', 'popup')">底部弹出 popup</button>
@@ -88,6 +91,7 @@
 
 <script>
 	import { uniCard, uniPopup, uniIcon, uniCalendar } from '@dcloudio/uni-ui'
+    import { getList } from '@/api/demo'
 
 	export default {
 
@@ -197,6 +201,11 @@
 					icon: 'none'
 				})
 			},
+
+            // 使用 Mock
+            mockData() {
+                getList().then(data => console.log(data))
+            },
 
 			togglePopup(type, open) {
 				switch (type) {

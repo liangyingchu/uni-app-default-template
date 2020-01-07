@@ -35,6 +35,7 @@
     "@dcloudio/uni-ui": "^1.0.1",
     "canvas-game-aide": "^1.0.7",
     "flyio": "^0.6.2",
+    "mockjs": "^1.1.0",
     "node-sass": "^4.12.0",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.2.0",

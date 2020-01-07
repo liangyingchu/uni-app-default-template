@@ -1,6 +1,8 @@
 
 const isDev = process.env.NODE_ENV === 'development'
-const baseURL = isDev ? 'developmentURL' : 'productionURL'
+const baseURL = isDev ?
+    'https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin' :
+    'https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin'
 
 const request = (urlParam, data, method='get', headersOption={}, showLoading=true) => {
     showLoading && uni.showLoading()
